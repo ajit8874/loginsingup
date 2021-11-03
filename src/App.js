@@ -5,16 +5,16 @@ import Login from './Login';
 import Signup from './Signup';
 import Logout from './Logout';
 import Home from './Home';
-
+//import {Button,Form,InputGroup} from 'react-bootstrap'
 function App() {
   return (
      
 
     <Router>
-       <Route path="/login" component={Login} />
+       <Route exact path="/login" component={Login} />
        <Route path="/Home" component={Home} />
        <Route path="/logout" component={Logout} />
-       <Route path="/" component={Signup} />
+       <Route exact path="/" component={Signup} />
     </Router>
   );
 }

@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,46 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+ .section{
+  border: 1px solid black;
+  height: 500px;
 }
+.signup{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+  background-color: rgb(232, 243, 239);
+  text-align: center;
+  padding:10px ;
+  border-radius: 20px;
+
+
+}
+
+/* input-type-submit:hover{
+  background-color: brown;
+} */
+
+ .login-section{
+  border: 1px solid black;
+  height: 500px;
+
+}
+.login{
+  height: 250px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+  background-color: rgb(232, 243, 239);
+  text-align: center;
+  padding:10px ;
+  border-radius: 10px;
+  margin: 10px;
+
+} 

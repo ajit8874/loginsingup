@@ -1,50 +1,45 @@
 import React,{useState} from 'react';
 import {Redirect } from 'react-router-dom'
+//import {Button,Form} from 'react-bootstrap/form'
 function Signup(){
 
-    const [username,setUsername]=useState('');
-    const [email,setEmail]=useState('');
+    const [username,setUsername]=useState();
+    const [email,setEmail]=useState();
 
-    const [password,setPassword]=useState('');
-    const [confirmpassword,setConfirmpassword]=useState('')
+    const [password,setPassword]=useState();
+    const [confirmpassword,setConfirmpassword]=useState()
      
     const [signup,setSignup]=useState(false);
-
-   // const [print,setPrint]=useState(false);
 
    // var auth =localStorage.getItem('auht');
 
     function signupData(e){
-        e.preventDefalut();
-        // if(auth==null){
-        //     auth=[];
-        // }
-         if(password===confirmpassword){
-             setSignup(true);
-            // console.log(signup);
-            
+        e.preventDefault();
+        
+          if(password===confirmpassword){
+              let obj={
+                  username:username,
+                  email:email,
+                  password:password,
+                  confirmpassword:confirmpassword
+                     
 
+            }
+              localStorage.setItem('mydata',JSON.stringify(obj));
+               setSignup(true);
+            
          }
-        // else{
-        //     alert("password does not match.")
-        // }
-        if(signup){
-            console.log(signup)
-            return <Redirect to="/Home" />
-            
-    
-        }
-
 
     }
-    
-    
-    
+    if(signup){
+        // console.log(username)
+         return <Redirect to="/login" />
+     }  
     return (
-       <div>
-          <h1>Signup Component</h1>
-
-           <form onSubmit={(e)=>signupData(e)}>
+       <div class="section">
+       <div class="signup"> 
+           <h1>Signup Component</h1>
+           <form onSubmit={signupData}>
 
              <input  type="text" placeholder="username" value={username} onChange={(e)=>setUsername(e.target.value)} /> <br /> <br />
              <input  type="email" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} /><br /> <br />
@@ -54,10 +49,12 @@ function Signup(){
 
              <input  type="Pasword" placeholder="confirmpassword" 
              onChange={(e)=>setConfirmpassword(e.target.value)} /><br /> <br /> 
-           </form>
-           
-           <input type="submit"  />
+             
+             <input type="submit" /> 
+             
+           </form>      
         </div>
+     </div>
        
     )
 }
